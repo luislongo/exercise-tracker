@@ -1,14 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import NavBar from './components/NavBar.component'
+import ExercisesList from './components/ExercisesList.component'
+import EditExercise from './components/EditExercises.component'
+import CreateExercise from './components/CreateExercise.component'
+import CreateUser from './components/CreateUser.component'
 
 function App() {
   return (
     <Router>
-      <NavBar />
-        <Route path='/' exact component={ExerciseList}/>
-        <Route path='/edit/:id' component={EditExercise}/>
-        <Route path='/create' component={CreateExercise}/>
-        <Route path='/user' component={CreateUser}/>
+      <div className='container' >
+        <NavBar />
+            <Route path='/' exact component={ExercisesList}/>
+            <Route path='/edit/:id' component={EditExercise}/>
+            <Route path='/create' component={CreateExercise}/>
+            <Route path='/user' component={CreateUser}/>
+      </div>
     </Router>
   );
 }
