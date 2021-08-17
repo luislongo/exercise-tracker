@@ -1,5 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
 import DatePicker from "react-datepicker"
+import axios from 'axios'
+
 import 'react-datepicker/dist/react-datepicker.css'
 
 const CreateExercise = () => {
@@ -44,7 +46,10 @@ const CreateExercise = () => {
             date : date
         }
 
-        window.location = '/'
+        axios.post('http://localhost:5000/exercises/add', newExercise)
+            .then((res) => console.log(res))
+
+        //window.location = '/'
     }
 
     return (
