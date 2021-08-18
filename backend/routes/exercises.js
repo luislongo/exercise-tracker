@@ -34,7 +34,7 @@ router.route('/:id').get((req, res) => {
 })
 
 router.route('/:id').delete((req, res) => {
-    Exercise.findOneAndDelete(req.params.id)
+    Exercise.findByIdAndDelete(req.params.id)
         .then(() => res.json('Exercise deleted!'))
         .catch((err) => res.status(400).json('Error: '+ err)) 
 })
