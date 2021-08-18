@@ -7,6 +7,7 @@ Used:
 - Express
 - React
 - Node.js
+- Axios
 
 Knowledges Developped:
 - 
