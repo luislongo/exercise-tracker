@@ -13,11 +13,8 @@ const CreateExercise = () => {
     const userInput = useRef(null)
 
     useEffect(() => {
-        setUsername('Test user')
-        setUsers([
-            'Test user','Test user 3','Test user 2','Test user 1','Test user 0'
-        ])
-        console.log(users)
+        axios.get('http://localhost:5000/users/')
+            .then((res) => setUsers(res.data.map((user) => user.username)))
     }, [])
 
     const handleUsernameChange = (e) => {

@@ -18,3 +18,7 @@ ________________________________________________________________________________
 users.map is not a function
 
 users hadn't been defined as an array
+
+____________________________________________________________________________________________________
+
+TypeError: The "original" argument must be of type Function
