@@ -14,8 +14,13 @@ const CreateExercise = () => {
 
     useEffect(() => {
         axios.get('http://localhost:5000/users/')
-            .then((res) => setUsers(res.data.map((user) => user.username)))
+            .then((res) => 
+                {
+                    setUsers(res.data.map((user) => user.username))
+                    setUsername(res.data[0].username)
+                })
     }, [])
+            
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value)
@@ -45,6 +50,11 @@ const CreateExercise = () => {
 
         axios.post('http://localhost:5000/exercises/add', newExercise)
             .then((res) => console.log(res))
+            .catch((err) => 
+            {
+                console.log(newExercise)
+                console.log(err)
+            })
 
         //window.location = '/'
     }
