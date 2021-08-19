@@ -20,14 +20,36 @@ const ExercisesList = () => {
  
     return (
         <div>
-            {exercises.map((exercise) => 
-                <div>
-                    <h3>{exercise.description}</h3>
-                    <h4>{exercise.username}</h4>
-                    <h5>{exercise.duration}</h5>
-                    <button onClick={() => handleExerciseDeleted(exercise._id)}>Delete</button>
-                </div>
-            )}
+            <table className='table table-sm'>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Description</th>
+                        <th>Duration</th>
+                        <th>Date</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {exercises.map((exercise) => 
+                    <tr>
+                        <td>{exercise.username}</td>
+                        <td>{exercise.description}</td>
+                        <td>{exercise.duration}</td>
+                        <td>{exercise.date.substring(0,10)}</td>
+                        <td>
+                            <button onClick={() => handleExerciseDeleted(exercise._id)}>Delete</button>
+                        </td>
+                        <td>
+                            <button onClick={() => handleExerciseDeleted(exercise._id)}>Edit</button>
+                        </td>
+                    </tr>
+                    )}
+                </tbody>
+            </table>
+
+            
         </div>
     )
 }

@@ -56,7 +56,7 @@ const CreateExercise = () => {
                 console.log(err)
             })
 
-        //window.location = '/'
+        window.location = '/'
     }
 
     return (
