@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import NavBar from './components/NavBar.component'
 import ExercisesList from './components/ExercisesList.component'
-import EditExercise from './components/EditExercises.component'
+import EditExercise from './components/EditExercise.component'
 import CreateExercise from './components/CreateExercise.component'
 import CreateUser from './components/CreateUser.component'
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import axios from 'axios'
 
 const ExercisesList = () => {
@@ -17,32 +17,32 @@ const ExercisesList = () => {
                 setExercises(exercises.filter((exercise) => exercise._id !== id))
             })
     }   
- 
+
     return (
         <div>
             <table className='table table-sm'>
-                <thead>
+               <thead>
                     <tr>
                         <th>Username</th>
                         <th>Description</th>
                         <th>Duration</th>
                         <th>Date</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {exercises.map((exercise) => 
-                    <tr>
+                    <tr key={exercise._id}>
                         <td>{exercise.username}</td>
                         <td>{exercise.description}</td>
                         <td>{exercise.duration}</td>
                         <td>{exercise.date.substring(0,10)}</td>
                         <td>
-                            <button onClick={() => handleExerciseDeleted(exercise._id)}>Delete</button>
-                        </td>
-                        <td>
-                            <button onClick={() => handleExerciseDeleted(exercise._id)}>Edit</button>
+                            <button className="btn btn-link" onClick={() => handleExerciseDeleted(exercise._id)}>Delete</button> 
+                            |
+                            <Link to={'/edit/' + exercise._id}>
+                                <button className="btn btn-link">Edit</button>
+                            </Link>
                         </td>
                     </tr>
                     )}
